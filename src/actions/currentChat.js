@@ -1,8 +1,8 @@
-import * as AC from './../reducers/currentChat'
+import * as TYPE from './../reducers/currentChat'
 
 export const updateCurrentChatAction = (params) => {
   return {
-    type: AC.UPDATE_CURRENT_CHAT,
+    type: TYPE.UPDATE_CURRENT_CHAT,
     payload: params
   }
 }

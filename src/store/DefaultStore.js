@@ -11,6 +11,7 @@ const DefaultStore = {
     {
       text: 'Olá, tudo bem?',
       id: '1234',
+      name: 'Mãe Cersei',
       date: new Date(),
       sendByMe: false,
     }

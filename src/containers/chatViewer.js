@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router'
 import { updateCurrentChatAction } from './../actions'
 import { connect } from 'react-redux'
-import { ChatHistory } from './'
+import { ChatHistory, ChatInput } from './'
 
 class ChatViewer extends Component {
 
@@ -25,6 +25,7 @@ class ChatViewer extends Component {
       <div>
         Conversando com {name}
         <ChatHistory/>
+        <ChatInput />
       </div>
     )
   }
