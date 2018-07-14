@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router'
 import { updateCurrentChatAction } from './../actions'
 import { connect } from 'react-redux'
+import { ChatHistory } from './'
 
 class ChatViewer extends Component {
 
@@ -22,7 +23,8 @@ class ChatViewer extends Component {
     const { name } = this.props.currentChat
     return(
       <div>
-        Conversando com tal {name}
+        Conversando com {name}
+        <ChatHistory/>
       </div>
     )
   }

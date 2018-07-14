@@ -9,8 +9,8 @@ const DefaultStore = {
   ],
   messages: [
     {
-      message: 'Olá, tudo bem?',
-      with: '312313121',
+      text: 'Olá, tudo bem?',
+      id: '1234',
       date: new Date(),
       sendByMe: false,
     }
