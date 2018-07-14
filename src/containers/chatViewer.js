@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router'
+import { updateCurrentChatAction } from './../actions'
+import { connect } from 'react-redux'
 
 class ChatViewer extends Component {
 
   updateCurrentChat = (params) => {
-    console.log('update chat', params)
+    this.props.dispatch(updateCurrentChatAction({...params}))
   }
 
   shouldComponentUpdate = (nextProps) => {
@@ -17,13 +19,21 @@ class ChatViewer extends Component {
   }
 
   render() {
-    // console.log('this', this.props)
+    const { name } = this.props.currentChat
     return(
       <div>
-        Conversando com tal amigo
+        Conversando com tal {name}
       </div>
     )
   }
 }
 
-export default withRouter(ChatViewer)
+const mapStateToProps = ({currentChat, friends}, props) => {
+  return {
+    currentChat,
+    friends,
+    ...props,
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(ChatViewer))
