@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
+import { AppWrapper } from './../components'
 
 class Chat extends Component {
   render() {
     return(
-      <div>
-        Conversando com um amigo
-      </div>
+      <AppWrapper>
+        <div>
+          Conversando com um amigo
+        </div>
+      </AppWrapper>
     )
   }
 }

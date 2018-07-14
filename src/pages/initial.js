@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
+import { AppWrapper } from './../components'
 
 class Initial extends Component {
   render() {
     return(
-      <div>
-        Selecione um amigo para conversar
-      </div>
+      <AppWrapper>
+          <div>
+            Selecione um amigo para conversar
+         </div>
+      </AppWrapper>
     )
   }
 }

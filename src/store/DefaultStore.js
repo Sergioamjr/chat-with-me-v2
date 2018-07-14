@@ -3,9 +3,9 @@ const DefaultStore = {
     name: 'Sérgio Junior'
   },
   friends: [
-    {id: '31241323', name: 'Mãe Cersei'},
-    {id: '31241323', name: 'Jofrey'},
-    {id: '31241323', name: 'Jaime'},
+    {id: '1234', name: 'Mãe Cersei'},
+    {id: '4534', name: 'Jofrey'},
+    {id: '6464', name: 'Jaime'},
   ],
   messages: [
     {
