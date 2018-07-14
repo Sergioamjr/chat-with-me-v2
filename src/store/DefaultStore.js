@@ -15,6 +15,9 @@ const DefaultStore = {
       sendByMe: false,
     }
   ],
+  currentChat: {
+    id: '1234', name: 'Mãe Cersei'
+  }
 }
 
 export default DefaultStore

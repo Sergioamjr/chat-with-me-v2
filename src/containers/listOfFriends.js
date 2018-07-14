@@ -3,6 +3,11 @@ import { connect } from 'react-redux'
 import { ListOfFriendsItem } from './../components'
 
 class ListOfFriends extends Component {
+
+  updateCurrentChatHandler = () => {
+    console.log('change chat')
+  }
+
   render() {
     const { friends } = this.props
 
@@ -13,7 +18,7 @@ class ListOfFriends extends Component {
     return(
       <ul>
         {friends.map(friend => (
-          <ListOfFriendsItem key={friend.id} {...friend} />
+          <ListOfFriendsItem onClick={this.updateCurrentChatHandler} key={friend.id} {...friend} />
         ))}
       </ul>
     )
