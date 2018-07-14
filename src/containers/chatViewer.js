@@ -6,6 +6,11 @@ import { ChatHistory, ChatInput } from './'
 
 class ChatViewer extends Component {
 
+  componentDidMount = () => {
+    const { match: { params }} = this.props
+    this.updateCurrentChat(params)
+  }
+
   updateCurrentChat = (params) => {
     this.props.dispatch(updateCurrentChatAction({...params}))
   }
@@ -14,12 +19,14 @@ class ChatViewer extends Component {
     const { match: { params: nextParams }} = nextProps
     const { match: { params: prevParams }} = this.props
     if(prevParams !== nextParams) {
+      console.log('update params', nextParams)
       this.updateCurrentChat(nextParams)
     }
     return true
   }
 
   render() {
+    console.log('currentchat', this.props.currentChat)
     const { name } = this.props.currentChat
     return(
       <div>
