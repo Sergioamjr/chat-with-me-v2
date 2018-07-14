@@ -1,7 +1,10 @@
 import React from 'react'
 
-const ChatItem = ({text}) => (
-  <li>{text}</li>
+const ChatItem = ({text, name}) => (
+  <li>
+    <span>De: {name}</span>
+    <p>{text}</p>
+  </li>
 )
 
 export default ChatItem
