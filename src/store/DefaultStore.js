@@ -1,11 +1,11 @@
 const DefaultStore = {
   user: {
-    name: 'Sérgio Junior'
+    name: 'Joffrey Lannister'
   },
   friends: [
     {id: '1234', name: 'Mãe Cersei'},
-    {id: '4534', name: 'Jofrey'},
-    {id: '6464', name: 'Jaime'},
+    {id: '4534', name: 'Tio Tyrion'},
+    {id: '6464', name: 'Tio Jaime'},
   ],
   messages: [
     {
