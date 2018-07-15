@@ -8,10 +8,11 @@ class ChatInput extends Component {
     text: '',
   }
 
-  onSubmitHandler = () => {
+  onSubmitHandler = (event) => {
     const text = _get(this, 'state.text')
     const id = _get(this, 'props.currentChat.id')
     if(!text) return false
+  
     const messageFactory = {
       date: new Date(),
       id,
@@ -19,6 +20,7 @@ class ChatInput extends Component {
     }
     this.setState({text: ''},
     () => this.props.dispatch(addNewMessageAction(messageFactory)))
+    event.preventDefault()
     return false
   }
 

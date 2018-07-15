@@ -19,14 +19,12 @@ class ChatViewer extends Component {
     const { match: { params: nextParams }} = nextProps
     const { match: { params: prevParams }} = this.props
     if(prevParams !== nextParams) {
-      console.log('update params', nextParams)
       this.updateCurrentChat(nextParams)
     }
     return true
   }
 
   render() {
-    console.log('currentchat', this.props.currentChat)
     const { name } = this.props.currentChat
     return(
       <div>
