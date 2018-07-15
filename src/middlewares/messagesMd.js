@@ -1,19 +1,13 @@
 import _get from 'lodash.get'
+import { defineWhoSendMessage } from './../utils'
 
 export const appendMessageDetails = store => next => action => {
   const userName = _get(store.getState(), 'user.name')
   const { id, name: friendName } = _get(store.getState(), 'currentChat')
   const messagesHistory = _get(store.getState(), 'messages', [])
   const messagesFiltered = messagesHistory.filter(message => message.id === id)
-  const messagesLength = messagesFiltered.length
-  let name
+  const name = defineWhoSendMessage(userName, friendName, messagesFiltered)
 
-  if(messagesLength === 0) {
-    name = userName
-  } else {
-    const lastMessageName = messagesFiltered[messagesLength - 1].name
-    name = lastMessageName === userName ? friendName : userName
-  }
 
   if(action.type === 'ADD_MESSAGE') {
     const newPayload = {
