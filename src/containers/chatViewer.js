@@ -3,12 +3,23 @@ import { withRouter } from 'react-router'
 import { updateCurrentChatAction } from './../actions'
 import { connect } from 'react-redux'
 import { ChatHistory, ChatInput } from './'
+import { isValidPath } from './../utils'
 
 class ChatViewer extends Component {
+
+  componentWillMount = () => {
+    const { friends, match: { params: { id } }} = this.props
+    const isValid = isValidPath(id, friends)
+    !isValid && this.redictToHome()
+  }
 
   componentDidMount = () => {
     const { match: { params }} = this.props
     this.updateCurrentChat(params)
+  }
+
+  redictToHome = () => {
+    return this.props.history.push('./')
   }
 
   updateCurrentChat = (params) => {
@@ -16,10 +27,16 @@ class ChatViewer extends Component {
   }
 
   shouldComponentUpdate = (nextProps) => {
-    const { match: { params: nextParams }} = nextProps
+    const { friends, match: { params: nextParams }} = nextProps
+    const { id: nextID } = nextParams
     const { match: { params: prevParams }} = this.props
     if(prevParams !== nextParams) {
-      this.updateCurrentChat(nextParams)
+      const isValid = isValidPath(nextID, friends)
+      if(isValid) {
+        this.updateCurrentChat(nextParams)
+      } else {
+        this.redictToHome()
+      }
     }
     return true
   }
