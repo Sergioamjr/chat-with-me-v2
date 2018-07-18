@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router'
 import { updateCurrentChatAction } from './../actions'
 import { connect } from 'react-redux'
-import { ChatHistory, ChatInput } from './'
 import { isValidPath } from './../utils'
+import { ChatViewer } from './../components'
 
-class ChatViewer extends Component {
+class ChatViewer_ extends Component {
 
   componentWillMount = () => {
     const { friends, match: { params: { id } }} = this.props
@@ -44,11 +44,7 @@ class ChatViewer extends Component {
   render() {
     const { name } = this.props.currentChat
     return(
-      <div>
-        Conversando com {name}
-        <ChatHistory/>
-        <ChatInput />
-      </div>
+      <ChatViewer name={name} />
     )
   }
 }
@@ -61,4 +57,4 @@ const mapStateToProps = ({currentChat, friends}, props) => {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(ChatViewer))
+export default withRouter(connect(mapStateToProps)(ChatViewer_))

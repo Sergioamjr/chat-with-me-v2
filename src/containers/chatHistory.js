@@ -1,23 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import _get from 'lodash.get'
-import { ChatItem } from './../components'
+import { ChatHistory } from './../components'
 
-class ChatHistory extends Component {
+class ChatHistory_ extends Component {
   render() {
     const messages = _get(this, 'props.messages', [])
     const currentChatId = _get(this, 'props.currentChat.id')
     const messagesFiltered = messages.filter(message => message.id === currentChatId)
 
     return(
-      <div>
-        Histórico da conversa
-        <ul>
-          {messagesFiltered.map((message, index) => (
-            <ChatItem key={index} {...message} />
-          ))}
-        </ul>
-      </div>
+      <ChatHistory messages={messagesFiltered} />
     )
   }
 }
@@ -31,4 +24,4 @@ const mapStateToProps = ({currentChat, messages}, props) => {
 }
 
 
-export default connect(mapStateToProps)(ChatHistory)
+export default connect(mapStateToProps)(ChatHistory_)

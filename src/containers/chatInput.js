@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import _get from 'lodash.get'
 import { addNewMessageAction } from './../actions'
+import { ChatForm } from './../components'
 
 class ChatInput extends Component {
   state = {
@@ -36,10 +37,10 @@ class ChatInput extends Component {
   render() {
     const text = _get(this, 'state.text')
     return(
-      <form>
-        <textarea onChange={this.onChangeHandler} value={text} placeholder='Digite sua mensagem' />
-        <button type="submit" onClick={this.onSubmitHandler}>Enviar</button>
-      </form>
+      <ChatForm
+        onSubmitHandler={this.onSubmitHandler}
+        onChangeHandler={this.onChangeHandler}
+        text={text} />
     )
   }
 }

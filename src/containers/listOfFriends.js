@@ -1,24 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { ListOfFriendsItem } from './../components'
+import { ListOfFriends } from './../components'
 
-class ListOfFriends extends Component {
+class ListOfFriends_ extends Component {
 
   render() {
     const { friends } = this.props
     const { id: currentID } = this.props.currentChat
-
-    if(friends.length === 0 ) {
-      return <p>Você não tem nenhum amigo :(</p>
-    }
-
-    return(
-      <ul>
-        {friends.map(friend => (
-          <ListOfFriendsItem currentID={currentID} key={friend.id} {...friend} />
-        ))}
-      </ul>
-    )
+    return <ListOfFriends currentID={currentID} friends={friends} />
   }
 }
 
@@ -30,4 +19,4 @@ const mapStateToProps = ({friends, currentChat}, props) => {
   }
 }
 
-export default connect(mapStateToProps)(ListOfFriends)
+export default connect(mapStateToProps)(ListOfFriends_)
